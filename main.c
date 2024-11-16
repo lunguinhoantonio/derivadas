@@ -13,6 +13,14 @@ void derivada_coeficiente_x(double a) {
     printf("\nf'(x) = %.0f\n", a * 1);
 }
 
+// Função que calcula a derivada de f(x) = ax^n
+void derivada_com_expoente(double a, double n) {
+    double aa = a * n;
+    double nn = n - 1;
+    printf("\nA derivada de f(x) = %.0fx^%.0f", a, n);
+    printf("\nf'(x) = %.0fx^%.0f", aa, nn);
+}
+
 // Função que calcula a derivada de f(x) = ax^n + bx + c
 void derivada_polinomio(double a, double n, double b, double c) {
     double da = a * n;     // Derivada de ax^n é a * n
@@ -42,9 +50,10 @@ int main() {
     printf("Escolha o tipo de função para calcular a derivada:\n");
     printf("1. Função simples (f(x) = a)\n");
     printf("2. Função simples com coeficiente (f(x) = ax)\n");
-    printf("3. Polinômio (ax^n + bx + c)\n");
-    printf("4. Seno (sin(ax + b))\n");
-    printf("5. Exponencial (e^(ax + b))\n");
+    printf("3. Função com expoente (f(x) = ax^n)\n");
+    printf("4. Polinômio (ax^n + bx + c)\n");
+    printf("5. Seno (sin(ax + b))\n");
+    printf("6. Exponencial (e^(ax + b))\n");
     printf("Sua escolha é: ");
     scanf("%d", &escolha);
 
@@ -60,6 +69,13 @@ int main() {
             derivada_coeficiente_x(a);
             break;
         case 3:
+            printf("\nDigite o coeficiente a (para o termo ax): ");
+            scanf(" %lf", &a);
+            printf("\nDigite o exponte n (para o termo ax^n): ");
+            scanf(" %lf", &n);
+            derivada_com_expoente(a, n);
+            break;
+        case 4:
             printf("\nDigite o coeficiente a (para o termo ax^n): ");
             scanf("%lf", &a);
             printf("Digite o expoente n (para o termo ax^n): ");
@@ -70,14 +86,14 @@ int main() {
             scanf("%lf", &c);
             derivada_polinomio(a, n, b, c);
             break;
-        case 4:
+        case 5:
             printf("\nDigite o coeficiente a (para o termo ax): ");
             scanf("%lf", &a);
             printf("Digite o coeficiente b (termo constante): ");
             scanf("%lf", &b);
             derivada_seno(a, b);
             break;
-        case 5:
+        case 6:
             printf("\nDigite o coeficiente a (para o termo ax): ");
             scanf("%lf", &a);
             printf("Digite o coeficiente b (termo constante): ");
@@ -88,5 +104,6 @@ int main() {
             printf("\nEscolha inválida.\n");
             break;
     }
+
     return 0;
 }
