@@ -2,111 +2,107 @@
 #include <math.h>
 
 // Função que calcula a derivada de f(x) = a
-void derivada_x(double a) {
-    printf("\nA derivada de f(x) = %.0f\n", a);
-    printf("\nf'(x) = %.0f\n", a - a);
+void derivada_x(int a) {
+    printf("A derivada de f(x) = %d\n", a);
+    printf("f'(x) = %d", a - a);
 }
 
 // Função que calcula a derivada de f(x) = ax
-void derivada_coeficiente_x(double a) {
-    printf("\nA derivada de f(x) = %.0fx\n", a);
-    printf("\nf'(x) = %.0f\n", a * 1);
+void derivada_coeficiente_x(int a) {
+    printf("A derivada de f(x) = %dx\n", a);
+    printf("f'(x) = %d", a * 1);
 }
 
 // Função que calcula a derivada de f(x) = ax^n
-void derivada_com_expoente(double a, double n) {
-    double aa = a * n;
-    double nn = n - 1;
-    printf("\nA derivada de f(x) = %.0fx^%.0f", a, n);
-    printf("\nf'(x) = %.0fx^%.0f", aa, nn);
+void derivada_com_expoente(int a, int n) {
+    int aa = a * n;
+    int nn = n - 1;
+    printf("A derivada de f(x) = %dx^%d\n", a, n);
+    printf("f'(x) = %dx^%d", aa, nn);
 }
 
-// Derivada de f(x) = √x
-void derivada_raiz(double a) {
-    printf("\nA derivada de f(x) = √%.0f\n", a);
-    printf("\n f'(x) = 1 / 2√%.0f\n", a);
-    
-    
+void derivada_raiz(int a) {
+    printf("A derivada de f(x) = √%d\n", a);
+    printf("f'(x) = 1 / 2√%d", a);
 }
+
 // Derivada de f(x) = log a
-void derivada_log(double a) { 
-    
-    printf("\nA derivada de f(x) = log %.0f", a);
-    printf("\nf'(x) = 1/%.0f ln 10", a);
+void derivada_log(int a) { 
+    printf("A derivada de f(x) = log %d\n", a);
+    printf("f'(x) = 1/%d ln 10", a);
 }
+
 // Derivada de f(x) = ln a
-void derivada_ln(double a) { 
-    printf("\nA derivada de f(x) = ln %.0f", a);
-    printf("\nf'(x) = 1/%.0f", a);
+void derivada_ln(int a) { 
+    printf("A derivada de f(x) = ln %d\n", a);
+    printf("f'(x) = 1/%d", a);
 }
 
 //derivada de f(x) = a^x
-void derivada_exponencial(double a) {
-    printf("\nA derivada de f(x) = %.0f^x", a);
-    printf("\nf'(x) = %.0f^x ln %.0f", a, a);
+void derivada_exponencial(int a) {
+    printf("A derivada de f(x) = %d^x\n", a);
+    printf("f'(x) = %d^x ln %d", a, a);
 }
 //derivada de f(x) = e^x
-void derivada_exponencial_Euler(double n) {
-    printf("\nA derivada de f(x) = e^%.0f", n);
-    printf("\nf'(x) = e^%.0f", n);
+void derivada_exponencial_Euler(int n) {
+    printf("A derivada de f(x) = e^%d\n", n);
+    printf("f'(x) = e^%d", n);
 }
 // Derivada de f(x) = sen x
-void derivada_sin(double a) {
-    printf("\nA derivada de f(x) = sin %.0f", a);
-    printf("\nf'(x) = cos %.0f", a);
+void derivada_sin(int a) {
+    printf("A derivada de f(x) = sin %d\n", a);
+    printf("f'(x) = cos %d", a);
 }
 // Derivada de f(x) = cos x
-void derivada_cos(double a) {
-    printf("\nA derivada de f(x) = cos %.0f", a);
-    printf("\nf'(x) = -sin %.0f", a);
+void derivada_cos(int a) {
+    printf("A derivada de f(x) = cos %d\n", a);
+    printf("f'(x) = -sin %d", a);
 }
 // Derivada de f(x) = tg x
-void derivada_tg(double a) {
-    printf("\nA derivada de f(x) = tg %.0f", a);
-    printf("\nf'(x) = sec^2 %.0f", a);
+void derivada_tg(int a) {
+    printf("A derivada de f(x) = tg %d\n", a);
+    printf("f'(x) = sec^2 %d", a);
 }
 // Derivada de f(x) = ctg x
-void derivada_ctg(double a) {
-    printf("\nA derivada de f(x) = ctg %.0f", a);
-    printf("\nf'(x) = -csc^2 %.0f", a);
+void derivada_ctg(int a) {
+    printf("A derivada de f(x) = ctg %d\n", a);
+    printf("f'(x) = -csc^2 %d", a);
 }
 // Derivada de f(x) = sec x
-void derivada_sec(double a) {
-    printf("\nA derivada de f(x) = ctg %.0f", a);
-    printf("\nf'(x) = tg %.0f * sec %.0f", a, a);
+void derivada_sec(int a) {
+    printf("A derivada de f(x) = ctg %d\n", a);
+    printf("f'(x) = tg %d * sec %d", a, a);
 }
 // Derivada de f(x) = csc x
-void derivada_csc(double a) {
-    printf("\nA derivada de f(x) = csc %.0f", a);
-    printf("\nf'(x) = -ctg %.0f * csc %.0f", a, a);
+void derivada_csc(int a) {
+    printf("A derivada de f(x) = csc %d\n", a);
+    printf("f'(x) = -ctg %d * csc %d", a, a);
 }
 
 // Função que calcula a derivada de f(x) = ax^n + bx + c
-void derivada_polinomio(double a, double n, double b, double c) {
-    double da = a * n;     // Derivada de ax^n é a * n
-    double dn = n - 1;     // Potência diminui em 1
-    double db = b;         // Derivada de bx é b
+void derivada_polinomio(int a, int n, int b, int c) {
+    int da = a * n;     // Derivada de ax^n é a * n
+    int dn = n - 1;     // Potência diminui em 1
+    int db = b;         // Derivada de bx é b
 
-    printf("\nA derivada de f(x) = %.0fx^%.0f + %.0fx + %.0f\n", a, n, b, c);
-    printf("f'(x) = %.0fx^%.0f + %.0f\n\n", da, dn, db);
+    printf("A derivada de f(x) = %dx^%d + %dx + %d\n", a, n, b, c);
+    printf("f'(x) = %dx^%d + %d", da, dn, db);
 }
 
 // Função que calcula a derivada de f(x) = sin(ax + b)
-void derivada_seno(double a, double b) {
-    printf("\nA derivada de f(x) = sin(%.0fx + %.0f)\n", a, b);
-    printf("f'(x) = cos(%.0fx + %.0f). %.0f\n\n", a, a, b);
+void derivada_seno(int a, int b) {
+    printf("A derivada de f(x) = sin(%dx + %d)\n", a, b);
+    printf("f'(x) = cos(%dx + %d) . %d", a, a, b);
 }
 
 // Função que exibe a derivada de f(x) = e^(ax + b)
-void derivada_exp(double a, double b) {
-    printf("\nA derivada de f(x) = e^(%.0fx + %.0f)\n", a, b);
-    printf("f'(x) = e^(%.0fx + %.0f). %.0f\n\n", a, a, b);
+void derivada_exp(int a, int b) {
+    printf("A derivada de f(x) = e^(%dx + %df)\n", a, b);
+    printf("f'(x) = e^(%dx + %d) . %d", a, a, b);
 }
 
 int main() {
-    int escolha;
-    double a, b, c, n;
-
+    int escolha, a, b, c, n;
     printf("Escolha o tipo de função para calcular a derivada:\n");
     printf("1. Função simples (f(x) = a)\n");
     printf("2. Função simples com coeficiente (f(x) = ax)\n");
@@ -126,110 +122,127 @@ int main() {
     printf("16. Seno (sin(ax + b))\n");
     printf("17. Euler (e^(ax + b))\n");
     printf("Sua escolha é: ");
-    scanf("%d", &escolha);
+    scanf(" %d", &escolha);
+    printf("\n");
 
     switch (escolha) {
         case 1:
-            printf("\nDigite o valor de a: ");
-            scanf(" %lf", &a);
+            printf("Digite o valor de a: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_x(a);
             break;
         case 2:
-            printf("\nDigite o coeficiente a (para o termo ax): ");
-            scanf(" %lf", &a);
+            printf("Digite o coeficiente a (para o termo ax): ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_coeficiente_x(a);
             break;
         case 3:
             printf("\nDigite o coeficiente a (para o termo ax): ");
-            scanf(" %lf", &a);
+            scanf(" %d", &a);
             printf("\nDigite o exponte n (para o termo ax^n): ");
-            scanf(" %lf", &n);
+            scanf(" %d", &n);
+            printf("\n");
             derivada_com_expoente(a, n);
             break;
         case 4:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_raiz(a);
             break;
         case 5:
-            printf("\nDigite o coeficiente a: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_log(a);
             break;
         case 6:
-            printf("\nDigite o coeficiente a: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_ln(a);
             break;
         case 7:
-            printf("\nDigite o coeficiente a: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_exponencial(a);
             break;
         case 8:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &n);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &n);
+            printf("\n");
             derivada_exponencial_Euler(n);
             break;
         case 9:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_sin(a);
             break;
         case 10:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_cos(a);
             break;
         case 11:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_tg(a);
             break;
         case 12:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_ctg(a);
             break;
         case 13:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_sec(a);
             break;
         case 14:
-            printf("\nDigite o coeficiente x: ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente x: ");
+            scanf(" %d", &a);
+            printf("\n");
             derivada_csc(a);
             break;
         case 15:
-            printf("\nDigite o coeficiente a (para o termo ax^n): ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a (para o termo ax^n): ");
+            scanf(" %d", &a);
             printf("Digite o expoente n (para o termo ax^n): ");
-            scanf("%lf", &n);
+            scanf(" %d", &n);
             printf("Digite o coeficiente b (para o termo bx): ");
-            scanf("%lf", &b);
+            scanf(" %d", &b);
             printf("Digite o coeficiente c (termo constante): ");
-            scanf("%lf", &c);
+            scanf(" %d", &c);
+            printf("\n");
             derivada_polinomio(a, n, b, c);
             break;
         case 16:
-            printf("\nDigite o coeficiente a (para o termo ax): ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a (para o termo ax): ");
+            scanf(" %d", &a);
             printf("Digite o coeficiente b (termo constante): ");
-            scanf("%lf", &b);
+            scanf(" %d", &b);
+            printf("\n");
             derivada_seno(a, b);
             break;
         case 17:
-            printf("\nDigite o coeficiente a (para o termo ax): ");
-            scanf("%lf", &a);
+            printf("Digite o coeficiente a (para o termo ax): ");
+            scanf(" %d", &a);
             printf("Digite o coeficiente b (termo constante): ");
-            scanf("%lf", &b);
+            scanf(" %d", &b);
+            printf("\n");
             derivada_exp(a, b);
             break;
         default:
-            printf("\nEscolha inválida.\n");
+            printf("Escolha inválida.\n");
             break;
     }
-
     return 0;
 }
