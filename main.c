@@ -21,6 +21,7 @@ void derivada_com_expoente(double a, double n) {
     printf("\nf'(x) = %.0fx^%.0f", aa, nn);
 }
 
+// Derivada de f(x) = √x
 void derivada_raiz(double a) {
     printf("\nA derivada de f(x) = √%.0f\n", a);
     printf("\n f'(x) = 1 / 2√%.0f\n", a);
@@ -99,7 +100,7 @@ void derivada_seno(double a, double b) {
 // Função que exibe a derivada de f(x) = e^(ax + b)
 void derivada_exp(double a, double b) {
     printf("\nA derivada de f(x) = e^(%.0fx + %.0f)\n", a, b);
-    printf("f'(x) = e^(%.2fx + %.0f). %.0f\n\n", a, a, b);
+    printf("f'(x) = e^(%.0fx + %.0f). %.0f\n\n", a, a, b);
 }
 
 int main() {
