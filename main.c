@@ -252,13 +252,15 @@ int main() {
                 printf("Escolha inválida.\n");
                 break;
         }
-        
-        printf("Continuar? [S/N]: ");
-        scanf(" %c", &continuar);
-        continuar = toupper(continuar);
-        if (continuar != 'S' && continuar != 'N') {
-            printf("Escolha uma opção válida!\n");
-        }
+        do {
+            printf("Continuar? [S/N]: ");
+            scanf(" %c", &continuar);
+            continuar = toupper(continuar);
+            if (continuar != 'S' && continuar != 'N') {
+                printf("Escolha uma opção válida!\n");
+                continue;
+            }
+        } while (continuar != 'S' && continuar != 'N');
             
         if (continuar == 'S') {
             system("clear");
