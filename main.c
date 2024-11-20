@@ -256,12 +256,14 @@ int main() {
         printf("Continuar? [S/N]: ");
         scanf(" %c", &continuar);
         continuar = toupper(continuar);
-        if (continuar != 'S' || continuar != 'N') {
+        if (continuar != 'S' && continuar != 'N') {
             printf("Escolha uma opção válida!\n");
         }
             
         if (continuar == 'S') {
             system("clear");
+        } else if (continuar == 'N') {
+            printf("Até mais tarde!\n");
         }
     } while (continuar == 'S');
     return 0;
