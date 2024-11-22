@@ -51,35 +51,72 @@ void derivada_exponencial_Euler(int n) {
     printf("A derivada de f(x) = e^%d\n", n);
     printf("f'(x) = e^%d\n", n);
 }
-// Função que calcula a derivada de f(x) = sen x
-void derivada_sin(int a) {
-    printf("A derivada de f(x) = sin %dx\n", a);
-    printf("f'(x) = cos %d\n", a);
+
+// Função que calcula a derivada de f(x) = sen ax
+void derivada_sin(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = sen %dx\n", a);
+        printf("f'(x) = %d cos %dx\n", a, a);
+    } else {
+        printf("A derivada de f(x) = sen %d\n", a);
+        printf("f'(x) = cos %d\n", a - a);
+    }
 }
-// Função que calcula a derivada de f(x) = cos x
-void derivada_cos(int a) {
-    printf("A derivada de f(x) = cos %dx\n", a);
-    printf("f'(x) = -sin %d\n", a);
+
+// Função que calcula a derivada de f(x) = cos ax
+void derivada_cos(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = cos %dx\n", a);
+        printf("f'(x) = -%dsen %dx\n", a, a);
+    } else {
+        printf("A derivada de f(x) = cos %d\n", a);
+        printf("f'(x) = -sen %d\n", a - a);
+    }
 }
-// Função que calcula a derivada de f(x) = tg x
-void derivada_tg(int a) {
-    printf("A derivada de f(x) = tg %dx\n", a);
-    printf("f'(x) = sec^2 %d\n", a);
+
+// Função que calcula a derivada de f(x) = tg ax
+void derivada_tg(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = tg %dx\n", a);
+        printf("f'(x) = %dsec^2 %dx\n", a, a);
+    } else {
+        printf("A derivada de f(x) = tg %d\n", a);
+        printf("f'(x) = sec^2 %d\n", a - a);
+    }
 }
-// Função que calcula a derivada de f(x) = ctg x
-void derivada_ctg(int a) {
-    printf("A derivada de f(x) = ctg %dx\n", a);
-    printf("f'(x) = -csc^2 %d\n", a);
+
+// Função que calcula a derivada de f(x) = ctg ax
+void derivada_ctg(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = ctg %dx\n", a);
+        printf("f'(x) = %dcsc^2 %dx\n", a * -1, a);
+    } else {
+        printf("A derivada de f(x) = ctg %d\n", a);
+        printf("f'(x) = %dcsc^2 %d\n", a - a, a - a);
+    }
 }
-// Função que calcula a derivada de f(x) = sec x
-void derivada_sec(int a) {
-    printf("A derivada de f(x) = sec %dx\n", a);
-    printf("f'(x) = tg %d * sec %d\n", a, a);
+
+// Função que calcula a derivada de f(x) = sec ax
+void derivada_sec(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = sec %dx\n", a);
+        printf("f'(x) = %d (tg %dx * sec %dx)\n", a, a, a);
+    } else {
+        printf("A derivada de f(x) = sec %d\n", a);
+        printf("f'(x) = tg %d * sec %d\n", a - a, a - a);
+        
+    }
 }
-// Função que calcula a derivada de f(x) = csc x
-void derivada_csc(int a) {
-    printf("A derivada de f(x) = csc %dx\n", a);
-    printf("f'(x) = -ctg %d * csc %d\n", a, a);
+
+// Função que calcula a derivada de f(x) = csc ax
+void derivada_csc(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = csc %dx\n", a);
+        printf("f'(x) = -%dctg %dx * csc %dx\n", a, a, a);
+    } else {
+        printf("A derivada de f(x) = csc %d\n", a);
+        printf("f'(x) = -ctg %d * csc %d\n", a - a, a - a);
+    }
 }
 
 // Função que calcula a derivada de f(x) = ax^n + bx + c
@@ -105,10 +142,9 @@ void derivada_exp(int a, int b) {
 }
 
 
-
 int main() {
     int escolha, a, b, c, n;
-    char continuar;
+    char continuar, temCoeficiente;
     do {
         printf("Escolha o tipo de função para calcular a derivada:\n");
         printf("0. Fechar programa\n");
@@ -150,9 +186,9 @@ int main() {
                 derivada_coeficiente_x(a);
                 break;
             case 3:
-                printf("\nDigite o coeficiente a (para o termo ax): ");
+                printf("Digite o coeficiente a (para o termo ax): ");
                 scanf(" %d", &a);
-                printf("\nDigite o exponte n (para o termo ax^n): ");
+                printf("Digite o exponte n (para o termo ax^n): ");
                 scanf(" %d", &n);
                 printf("\n");
                 derivada_com_expoente(a, n);
@@ -188,40 +224,88 @@ int main() {
                 derivada_exponencial_Euler(n);
                 break;
             case 9:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_sin(a);
+                derivada_sin(a, temCoeficiente);
                 break;
             case 10:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_cos(a);
+                derivada_cos(a, temCoeficiente);
                 break;
             case 11:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_tg(a);
+                derivada_tg(a, temCoeficiente);
                 break;
             case 12:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_ctg(a);
+                derivada_ctg(a, temCoeficiente);
                 break;
             case 13:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_sec(a);
+                derivada_sec(a, temCoeficiente);
                 break;
             case 14:
-                printf("Digite o coeficiente x: ");
+                do {
+                    printf("Essa função vai ter coeficiente? [S/N]: ");
+                    scanf(" %c", &temCoeficiente);
+                    temCoeficiente = toupper(temCoeficiente);
+                    if (temCoeficiente != 'S' && temCoeficiente != 'N') {
+                        printf("Resposta inválida!\n");
+                    }
+                } while (temCoeficiente != 'S' && temCoeficiente != 'N');
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_csc(a);
+                derivada_csc(a, temCoeficiente);
                 break;
             case 15:
                 printf("Digite o coeficiente a (para o termo ax^n): ");
