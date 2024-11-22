@@ -23,61 +23,62 @@ void derivada_com_expoente(int a, int n) {
     printf("f'(x) = %dx^%d\n", aa, nn);
 }
 
+// Função que calcula a derivada de f(x) = √x
 void derivada_raiz(int a) {
     printf("A derivada de f(x) = √%d\n", a);
     printf("f'(x) = 1 / 2√%d\n", a);
 }
 
-// Derivada de f(x) = log a
+// Função que calcula a derivada de f(x) = log a
 void derivada_log(int a) { 
     printf("A derivada de f(x) = log %d\n", a);
     printf("f'(x) = 1/%d ln 10\n", a);
 }
 
-// Derivada de f(x) = ln a
+// Função que calcula a derivada de f(x) = ln a
 void derivada_ln(int a) { 
     printf("A derivada de f(x) = ln %d\n", a);
     printf("f'(x) = 1/%d\n", a);
 }
 
-//derivada de f(x) = a^x
+// Função que calcula a derivada de f(x) = a^x
 void derivada_exponencial(int a) {
     printf("A derivada de f(x) = %d^x\n", a);
-    printf("f'(x) = %d^x ln %d\n", a, a);
+    printf("f'(x) = %d^x * ln %d\n", a, a);
 }
-//derivada de f(x) = e^x
+// Função que calcula a derivada de f(x) = e^x
 void derivada_exponencial_Euler(int n) {
     printf("A derivada de f(x) = e^%d\n", n);
     printf("f'(x) = e^%d\n", n);
 }
-// Derivada de f(x) = sen x
+// Função que calcula a derivada de f(x) = sen x
 void derivada_sin(int a) {
-    printf("A derivada de f(x) = sin %d\n", a);
+    printf("A derivada de f(x) = sin %dx\n", a);
     printf("f'(x) = cos %d\n", a);
 }
-// Derivada de f(x) = cos x
+// Função que calcula a derivada de f(x) = cos x
 void derivada_cos(int a) {
-    printf("A derivada de f(x) = cos %d\n", a);
+    printf("A derivada de f(x) = cos %dx\n", a);
     printf("f'(x) = -sin %d\n", a);
 }
-// Derivada de f(x) = tg x
+// Função que calcula a derivada de f(x) = tg x
 void derivada_tg(int a) {
-    printf("A derivada de f(x) = tg %d\n", a);
+    printf("A derivada de f(x) = tg %dx\n", a);
     printf("f'(x) = sec^2 %d\n", a);
 }
-// Derivada de f(x) = ctg x
+// Função que calcula a derivada de f(x) = ctg x
 void derivada_ctg(int a) {
-    printf("A derivada de f(x) = ctg %d\n", a);
+    printf("A derivada de f(x) = ctg %dx\n", a);
     printf("f'(x) = -csc^2 %d\n", a);
 }
-// Derivada de f(x) = sec x
+// Função que calcula a derivada de f(x) = sec x
 void derivada_sec(int a) {
-    printf("A derivada de f(x) = ctg %d\n", a);
+    printf("A derivada de f(x) = sec %dx\n", a);
     printf("f'(x) = tg %d * sec %d\n", a, a);
 }
-// Derivada de f(x) = csc x
+// Função que calcula a derivada de f(x) = csc x
 void derivada_csc(int a) {
-    printf("A derivada de f(x) = csc %d\n", a);
+    printf("A derivada de f(x) = csc %dx\n", a);
     printf("f'(x) = -ctg %d * csc %d\n", a, a);
 }
 
@@ -99,9 +100,11 @@ void derivada_seno(int a, int b) {
 
 // Função que exibe a derivada de f(x) = e^(ax + b)
 void derivada_exp(int a, int b) {
-    printf("A derivada de f(x) = e^(%dx + %df)\n", a, b);
+    printf("A derivada de f(x) = e^(%dx + %d)\n", a, b);
     printf("f'(x) = e^(%dx + %d) . %d\n", a, a, b);
 }
+
+
 
 int main() {
     int escolha, a, b, c, n;
@@ -117,12 +120,12 @@ int main() {
         printf("6. Função de ln f(x) = ln a\n");
         printf("7. Função exponencial f(x) = a^x\n");
         printf("8. Função exponencial com Euler f(x) = e^x\n");
-        printf("9. Função seno f(x) = sin x\n");
-        printf("10. Função cosseno f(x) = cos x\n");
-        printf("11. Função tangente f(x) = tg x\n");
-        printf("12. Função cotangente f(x) = ctg x\n");
-        printf("13. Função secante f(x) = sec x\n");
-        printf("14. Função cossecante f(x) = csc x\n");
+        printf("9. Função seno f(x) = sin ax\n");
+        printf("10. Função cosseno f(x) = cos ax\n");
+        printf("11. Função tangente f(x) = tg ax\n");
+        printf("12. Função cotangente f(x) = ctg ax\n");
+        printf("13. Função secante f(x) = sec ax\n");
+        printf("14. Função cossecante f(x) = csc ax\n");
         printf("15. Polinômio (ax^n + bx + c)\n");
         printf("16. Seno sin(ax + b)\n");
         printf("17. Euler e^(ax + b)\n");
@@ -252,6 +255,7 @@ int main() {
                 printf("Escolha inválida.\n");
                 break;
         }
+        
         do {
             printf("Continuar? [S/N]: ");
             scanf(" %c", &continuar);
