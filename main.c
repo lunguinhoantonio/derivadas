@@ -49,17 +49,23 @@ void derivada_exponencial(int a) {
     printf("A derivada de f(x) = %d^x\n", a);
     printf("f'(x) = %d^x * ln %d\n", a, a);
 }
+
 // Função que calcula a derivada de f(x) = e^x
-void derivada_exponencial_Euler(int n) {
-    printf("A derivada de f(x) = e^%d\n", n);
-    printf("f'(x) = e^%d\n", n);
+void derivada_exponencial_Euler(int n, char temCoeficiente) {
+    if (temCoeficiente  == 'S') {
+        printf("A derivada de f(x) = e^%dx\n", n);
+        printf("f'(x) = %de^%dx\n", n, n);
+    } else {
+        printf("A derivada de f(x) = e^%d\n", n);
+        printf("f'(x) = %d\n", n - n);
+    }
 }
 
 // Função que calcula a derivada de f(x) = sen ax
 void derivada_sin(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = sen %dx\n", a);
-        printf("f'(x) = %d cos %dx\n", a, a);
+        printf("f'(x) = %dcos %dx\n", a, a);
     } else {
         printf("A derivada de f(x) = sen %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -144,6 +150,7 @@ void derivada_exp(int a, int b) {
     printf("f'(x) = e^(%dx + %d) . %d\n", a, b, a);
 }
 
+// Função que lê o valor de a em uma equação
 int digiteValorA() {
     int a;
     printf("Digite o valor de a: ");
@@ -152,6 +159,7 @@ int digiteValorA() {
     return a;
 }
 
+// Função que diz por si só o que faz
 char temCoeficiente;
 void verificaCoeficiente() {
     do {
@@ -177,7 +185,7 @@ int main() {
         printf("4. Função de logaritmo f(x) = log a\n");
         printf("5. Função de ln f(x) = ln a\n");
         printf("6. Função exponencial f(x) = a^x\n");
-        printf("7. Função exponencial com Euler f(x) = e^x\n");
+        printf("7. Função exponencial com Euler f(x) = e^ax\n");
         printf("8. Função seno f(x) = sin ax\n");
         printf("9. Função cosseno f(x) = cos ax\n");
         printf("10. Função tangente f(x) = tg ax\n");
@@ -226,10 +234,9 @@ int main() {
                 derivada_exponencial(a);
                 break;
             case 7:
-                printf("Digite o coeficiente x: ");
-                scanf(" %d", &n);
-                printf("\n");
-                derivada_exponencial_Euler(n);
+                verificaCoeficiente();
+                n = digiteValorA();
+                derivada_exponencial_Euler(n, temCoeficiente);
                 break;
             case 8:
                 verificaCoeficiente();
