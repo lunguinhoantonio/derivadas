@@ -144,6 +144,14 @@ void derivada_exp(int a, int b) {
     printf("f'(x) = e^(%dx + %d) . %d\n", a, b, a);
 }
 
+int digiteValorA() {
+    int a;
+    printf("Digite o valor de a: ");
+    scanf(" %d", &a);
+    printf("\n");
+    return a;
+}
+
 char temCoeficiente;
 void verificaCoeficiente() {
     do {
@@ -189,13 +197,11 @@ int main() {
                 return 0;
             case 1:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_x(a, temCoeficiente);
                 break;
             case 2:
-                printf("Digite o coeficiente a (para o termo ax): ");
+                printf("Digite o valor de a (para o termo ax): ");
                 scanf(" %d", &a);
                 printf("Digite o exponte n (para o termo ax^n): ");
                 scanf(" %d", &n);
@@ -204,27 +210,19 @@ int main() {
                 break;
             case 3:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_raiz(a, temCoeficiente);
                 break;
             case 4:
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_log(a);
                 break;
             case 5:
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_ln(a);
                 break;
             case 6:
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_exponencial(a);
                 break;
             case 7:
@@ -235,44 +233,32 @@ int main() {
                 break;
             case 8:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_sin(a, temCoeficiente);
                 break;
             case 9:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_cos(a, temCoeficiente);
                 break;
             case 10:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_tg(a, temCoeficiente);
                 break;
             case 11:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_ctg(a, temCoeficiente);
                 break;
             case 12:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_sec(a, temCoeficiente);
                 break;
             case 13:
                 verificaCoeficiente();
-                printf("Digite o valor de a: ");
-                scanf(" %d", &a);
-                printf("\n");
+                a = digiteValorA();
                 derivada_csc(a, temCoeficiente);
                 break;
             case 14:
