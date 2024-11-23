@@ -65,7 +65,8 @@ void derivada_exponencial_Euler(int n, char temCoeficiente) {
 void derivada_sin(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = sen %dx\n", a);
-        printf("f'(x) = %dcos %dx\n", a, a);
+        int coeficienteAbs = (a < 0) ? abs(a) : a;
+        printf("f'(x) = %dcos %dx\n", a, coeficienteAbs);
     } else {
         printf("A derivada de f(x) = sen %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -75,8 +76,13 @@ void derivada_sin(int a, char temCoeficiente) {
 // Função que calcula a derivada de f(x) = cos ax
 void derivada_cos(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
-        printf("A derivada de f(x) = cos %dx\n", a);
-        printf("f'(x) = -%dsen %dx\n", a, a);
+        if (a < 0) {
+            printf("A derivada de f(x) = cos %dx\n", a);
+            printf("f'(x) = %dsen %dx\n", a, abs(a));
+        } else {
+            printf("A derivada de f(x) = cos %dx\n", a);
+            printf("f'(x) = -%dsen %dx\n", a, a);
+        }
     } else {
         printf("A derivada de f(x) = cos %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -87,7 +93,8 @@ void derivada_cos(int a, char temCoeficiente) {
 void derivada_tg(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = tg %dx\n", a);
-        printf("f'(x) = %dsec^2 %dx\n", a, a);
+        int coeficienteAbs = (a < 0) ? abs(a) : a;
+        printf("f'(x) = %dsec^2 %dx\n", a, coeficienteAbs);
     } else {
         printf("A derivada de f(x) = tg %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -98,7 +105,7 @@ void derivada_tg(int a, char temCoeficiente) {
 void derivada_ctg(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = ctg %dx\n", a);
-        printf("f'(x) = %dcsc^2 %dx\n", a * -1, a);
+        printf("f'(x) = %dcsc^2 %dx\n", a * -1, abs(a));
     } else {
         printf("A derivada de f(x) = ctg %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -109,7 +116,7 @@ void derivada_ctg(int a, char temCoeficiente) {
 void derivada_sec(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = sec %dx\n", a);
-        printf("f'(x) = %d (tg %dx * sec %dx)\n", a, a, a);
+        printf("f'(x) = %d(tg %dx * sec %dx)\n", abs(a), abs(a), abs(a));
     } else {
         printf("A derivada de f(x) = sec %d\n", a);
         printf("f'(x) = %d\n", a - a);
@@ -121,7 +128,7 @@ void derivada_sec(int a, char temCoeficiente) {
 void derivada_csc(int a, char temCoeficiente) {
     if (temCoeficiente == 'S') {
         printf("A derivada de f(x) = csc %dx\n", a);
-        printf("f'(x) = -%dctg %dx * csc %dx\n", a, a, a);
+        printf("f'(x) = %dctg %dx * csc %dx\n", a * -1, abs(a), abs(a));
     } else {
         printf("A derivada de f(x) = csc %d\n", a);
         printf("f'(x) = %d\n", a - a);
