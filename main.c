@@ -22,10 +22,14 @@ void derivada_com_expoente(int a, int n) {
     printf("f'(x) = %dx^%d\n", aa, nn);
 }
 
-// Função que calcula a derivada de f(x) = √x
-void derivada_raiz(int a) {
-    printf("A derivada de f(x) = √%d\n", a);
-    printf("f'(x) = 1 / 2√%d\n", a);
+// Função que calcula a derivada de f(x) = √ax
+void derivada_raiz(int a, char temCoeficiente) {
+    if (temCoeficiente == 'S') {
+        printf("A derivada de f(x) = √%dx\n", a);
+        printf("f'(x) = 1 / 2√%d * %d\n", a, a);
+    } else {
+        printf("f'(x) = 1 / 2√%d\n", a);
+    }
 }
 
 // Função que calcula a derivada de f(x) = log a
@@ -140,7 +144,6 @@ void derivada_exp(int a, int b) {
     printf("f'(x) = e^(%dx + %d) . %d\n", a, b, a);
 }
 
-// Faz verificação se a função vai ter coeficiente
 char temCoeficiente;
 void verificaCoeficiente() {
     do {
@@ -162,7 +165,7 @@ int main() {
         printf("0. Fechar programa\n");
         printf("1. Função simples f(x) = ax\n");
         printf("2. Função com expoente no coeficiente f(x) = ax^n\n");
-        printf("3. Função de raiz quadrada f(x) = √x\n");
+        printf("3. Função de raiz quadrada f(x) = √ax\n");
         printf("4. Função de logaritmo f(x) = log a\n");
         printf("5. Função de ln f(x) = ln a\n");
         printf("6. Função exponencial f(x) = a^x\n");
@@ -200,25 +203,26 @@ int main() {
                 derivada_com_expoente(a, n);
                 break;
             case 3:
-                printf("Digite o coeficiente x: ");
+                verificaCoeficiente();
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
-                derivada_raiz(a);
+                derivada_raiz(a, temCoeficiente);
                 break;
             case 4:
-                printf("Digite o coeficiente a: ");
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
                 derivada_log(a);
                 break;
             case 5:
-                printf("Digite o coeficiente a: ");
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
                 derivada_ln(a);
                 break;
             case 6:
-                printf("Digite o coeficiente a: ");
+                printf("Digite o valor de a: ");
                 scanf(" %d", &a);
                 printf("\n");
                 derivada_exponencial(a);
