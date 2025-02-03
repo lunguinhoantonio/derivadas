@@ -187,7 +187,7 @@ int main() {
         printf("Escolha o tipo de função para calcular a derivada:\n");
         printf("0. Fechar programa\n");
         printf("1. Função simples f(x) = ax\n");
-        printf("2. Função com expoente no Variavel f(x) = ax^n\n");
+        printf("2. Função com expoente na variável f(x) = ax^n\n");
         printf("3. Função de raiz quadrada f(x) = √ax\n");
         printf("4. Função de logaritmo f(x) = log a\n");
         printf("5. Função de ln f(x) = ln a\n");
@@ -276,29 +276,29 @@ int main() {
                 derivada_csc(a, temVariavel);
                 break;
             case 14:
-                printf("Digite o Variavel a (para o termo ax^n): ");
+                printf("Digite a variável a (para o termo ax^n): ");
                 scanf(" %d", &a);
                 printf("Digite o expoente n (para o termo ax^n): ");
                 scanf(" %d", &n);
-                printf("Digite o Variavel b (para o termo bx): ");
+                printf("Digite a variável b (para o termo bx): ");
                 scanf(" %d", &b);
-                printf("Digite o Variavel c (termo constante): ");
+                printf("Digite a variável c (termo constante): ");
                 scanf(" %d", &c);
                 printf("\n");
                 derivada_polinomio(a, n, b, c);
                 break;
             case 15:
-                printf("Digite o Variavel a (para o termo ax): ");
+                printf("Digite a variável a (para o termo ax): ");
                 scanf(" %d", &a);
-                printf("Digite o Variavel b (termo constante): ");
+                printf("Digite a variável b (termo constante): ");
                 scanf(" %d", &b);
                 printf("\n");
                 derivada_seno(a, b);
                 break;
             case 16:
-                printf("Digite o Variavel a (para o termo ax): ");
+                printf("Digite a variável a (para o termo ax): ");
                 scanf(" %d", &a);
-                printf("Digite o Variavel b (termo constante): ");
+                printf("Digite a variável b (termo constante): ");
                 scanf(" %d", &b);
                 printf("\n");
                 derivada_exp(a, b);
