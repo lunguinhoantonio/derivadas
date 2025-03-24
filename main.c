@@ -3,6 +3,29 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+// Função para mostrar o menu
+void menu() {
+    printf("Escolha o tipo de função para calcular a derivada:\n");
+    printf("0. Fechar programa\n");
+    printf("1. Função simples f(x) = ax\n");
+    printf("2. Função com expoente na variável f(x) = ax^n\n");
+    printf("3. Função de raiz quadrada f(x) = √ax\n");
+    printf("4. Função de logaritmo f(x) = log a\n");
+    printf("5. Função de ln f(x) = ln a\n");
+    printf("6. Função exponencial f(x) = a^x\n");
+    printf("7. Função exponencial com Euler f(x) = e^ax\n");
+    printf("8. Função seno f(x) = sin ax\n");
+    printf("9. Função cosseno f(x) = cos ax\n");
+    printf("10. Função tangente f(x) = tg ax\n");
+    printf("11. Função cotangente f(x) = ctg ax\n");
+    printf("12. Função secante f(x) = sec ax\n");
+    printf("13. Função cossecante f(x) = csc ax\n");
+    printf("14. Polinômio (ax^n + bx + c)\n");
+    printf("15. Seno sin(ax + b)\n");
+    printf("16. Euler e^(ax + b)\n");
+    printf("Sua escolha é: ");
+}
+
 // Função que calcula a derivada de f(x) = ax
 void derivada_x(int a, char temVariavel) {
     if (temVariavel == 'S') {
@@ -184,25 +207,7 @@ int main() {
     int escolha, a, b, c, n;
     char continuar;
     do {
-        printf("Escolha o tipo de função para calcular a derivada:\n");
-        printf("0. Fechar programa\n");
-        printf("1. Função simples f(x) = ax\n");
-        printf("2. Função com expoente na variável f(x) = ax^n\n");
-        printf("3. Função de raiz quadrada f(x) = √ax\n");
-        printf("4. Função de logaritmo f(x) = log a\n");
-        printf("5. Função de ln f(x) = ln a\n");
-        printf("6. Função exponencial f(x) = a^x\n");
-        printf("7. Função exponencial com Euler f(x) = e^ax\n");
-        printf("8. Função seno f(x) = sin ax\n");
-        printf("9. Função cosseno f(x) = cos ax\n");
-        printf("10. Função tangente f(x) = tg ax\n");
-        printf("11. Função cotangente f(x) = ctg ax\n");
-        printf("12. Função secante f(x) = sec ax\n");
-        printf("13. Função cossecante f(x) = csc ax\n");
-        printf("14. Polinômio (ax^n + bx + c)\n");
-        printf("15. Seno sin(ax + b)\n");
-        printf("16. Euler e^(ax + b)\n");
-        printf("Sua escolha é: ");
+        menu();
         scanf(" %d", &escolha);
         printf("\n");
     
